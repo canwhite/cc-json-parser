@@ -4,11 +4,11 @@
 
 ### 为什么这是最佳选择？
 
-`extractJSONEnhanced()` 是当前最强大和通用的 JSON 提取方法，它提供了**4层提取策略**，确保在各种情况下都能成功提取数据。
+`extractJSONEnhanced()` 是当前最强大和通用的 JSON 提取方法，它提供了**4 层提取策略**，确保在各种情况下都能成功提取数据。
 
 ### 核心优势
 
-✅ **多策略保障**：自动尝试4种不同的提取方法
+✅ **多策略保障**：自动尝试 4 种不同的提取方法
 ✅ **智能回退**：一种方法失败，自动尝试下一种
 ✅ **通用性强**：处理各种 LLM 响应格式
 ✅ **容错性好**：即使格式不完美也能提取
@@ -25,7 +25,7 @@
 ## 🚀 基础使用
 
 ```typescript
-import { JSONParser } from './src/jsonParser.js';
+import { JSONParser } from "./src/jsonParser.js";
 
 const llmResponse = `
 # AI 生成的副本数据
@@ -50,13 +50,16 @@ console.log("提取结果：", result);
 ```
 
 **输出结果可能为：**
+
 ```json
 {
   "recommendedLevel": "30-35级",
   "playerCount": "3-5人"
 }
 ```
+
 **或者自然语言提取的结果：**
+
 ```json
 {
   "title": "火焰山副本",
@@ -70,6 +73,7 @@ console.log("提取结果：", result);
 ## 📦 处理不同格式的例子
 
 ### 1. 标准 JSON
+
 ```typescript
 const jsonStr = '{"name": "张三", "age": 25}';
 const result = JSONParser.extractJSONEnhanced(jsonStr);
@@ -77,6 +81,7 @@ const result = JSONParser.extractJSONEnhanced(jsonStr);
 ```
 
 ### 2. 代码块中的 JSON
+
 ```typescript
 const codeBlockText = `
 响应内容：
@@ -89,6 +94,7 @@ const result = JSONParser.extractJSONEnhanced(codeBlockText);
 ```
 
 ### 3. 嵌入文本的 JSON
+
 ```typescript
 const embeddedText = `处理结果：{"success": true, "message": "完成"} 时间：2024-01-01`;
 const result = JSONParser.extractJSONEnhanced(embeddedText);
@@ -96,6 +102,7 @@ const result = JSONParser.extractJSONEnhanced(embeddedText);
 ```
 
 ### 4. 纯自然语言描述
+
 ```typescript
 const naturalText = `
 # 副本创建成功
@@ -124,7 +131,7 @@ const extracted = JSONParser.extractJSONEnhanced(response);
 
 // 2. 安全解析（可选）
 const safeResult = JSONParser.safeParse(JSON.stringify(extracted || {}), {
-  fallback: { error: "数据提取失败" }
+  fallback: { error: "数据提取失败" },
 });
 
 if (safeResult.success) {
@@ -186,6 +193,7 @@ console.log(scenarioData);
 ## 💡 使用技巧
 
 ### 1. 检查提取结果
+
 ```typescript
 const result = JSONParser.extractJSONEnhanced(text);
 console.log("提取结果：", result);
@@ -197,6 +205,7 @@ if (result && result.name) {
 ```
 
 ### 2. 组合使用
+
 ```typescript
 // 先尝试提取，如果失败则尝试其他方法
 let data = JSONParser.extractJSONEnhanced(response);
@@ -213,6 +222,7 @@ if (!data) {
 ```
 
 ### 3. 调试输出
+
 ```typescript
 // 方法内部有 console.log 输出，可以看到提取过程
 const result = JSONParser.extractJSONEnhanced(response);
