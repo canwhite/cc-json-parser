@@ -1,0 +1,61 @@
+{
+  "name": "@iamqc/cc-json-parser",
+  "version": "1.0.0",
+  "description": "A powerful JSON parser designed specifically for handling LLM responses with multiple extraction strategies and intelligent error handling",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "json",
+    "parser",
+    "llm",
+    "ai",
+    "extraction",
+    "typescript",
+    "bun",
+    "claude"
+  ],
+  "author": "iamqc",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamqc/cc-json-parser"
+  },
+  "homepage": "https://github.com/iamqc/cc-json-parser#readme",
+  "bugs": {
+    "url": "https://github.com/iamqc/cc-json-parser/issues"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:clean": "rm -rf dist && npm run build",
+    "prepublishOnly": "npm run build:clean",
+    "test": "bun test",
+    "clean": "rm -rf dist",
+    "lint": "echo \"Add your preferred linter and update scripts\" && exit 0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "jsonrepair": "^3.13.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
