@@ -1,4 +1,4 @@
-export { default as JSONParser } from "./jsonParser";
+export { JSONParser } from "./jsonParser";
 
 // Export interfaces
 export type {
@@ -8,4 +8,5 @@ export type {
   JSONCandidate,
   SafeParseOptions,
   NaturalLanguageExtraction,
+  InputType,
 } from "./jsonParser";

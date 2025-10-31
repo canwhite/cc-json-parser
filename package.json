@@ -1,6 +1,6 @@
 {
   "name": "@iamqc/cc-json-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A powerful JSON parser designed specifically for handling LLM responses with multiple extraction strategies and intelligent error handling",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -53,7 +53,8 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "jsonrepair": "^3.13.1"
+    "jsonrepair": "^3.13.1",
+    "marked": "^16.4.1"
   },
   "engines": {
     "node": ">=16.0.0"
